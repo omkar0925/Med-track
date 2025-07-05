@@ -1,0 +1,38 @@
+<!-- templates/book_appointment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Appointment - MedTrack</title>
+</head>
+<body>
+  <h1>Book an Appointment</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p style="color:green;">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+    <label>Patient Name:</label><br>
+    <input type="text" name="patient_name"><br><br>
+
+    <label>Doctor:</label><br>
+    <input type="text" name="doctor"><br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date"><br><br>
+
+    <label>Time:</label><br>
+    <input type="time" name="time"><br><br>
+
+    <label>Reason:</label><br>
+    <textarea name="reason"></textarea><br><br>
+
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>

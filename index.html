@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MedTrack - Welcome</title>
+</head>
+<body>
+  <h1>Welcome to MedTrack!</h1>
+  <p><a href="{{ url_for('signup') }}">Sign Up</a> | <a href="{{ url_for('login') }}">Log In</a></p>
+</body>
+</html>
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Welcome - MedTrack{% endblock %}
+
+{% block content %}
+  <div class="text-center">
+    <h1 class="display-4">Welcome to MedTrack!</h1>
+    <p class="lead">Book and manage your medical appointments easily.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg">Get Started</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- templates/patient_dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Dashboard - MedTrack</title>
+</head>
+<body>
+  <h1>Patient Dashboard</h1>
+
+  <p>Welcome, {{ username }}!</p>
+  <p>Total Appointments: {{ total_appointments }}</p>
+  <p>Upcoming Appointments: {{ upcoming_appointments }}</p>
+
+  <h2>Upcoming Appointments</h2>
+  <ul>
+    {% for appt in upcoming_appointments_list %}
+      <li>{{ appt.date }} at {{ appt.time }} with Dr. {{ appt.doctor }}</li>
+    {% else %}
+      <li>No upcoming appointments.</li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>
